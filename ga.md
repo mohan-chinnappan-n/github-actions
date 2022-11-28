@@ -7,6 +7,8 @@
 
 - Workflow can be triggered by an event in your repository, or they can be triggered manually, or at a defined schedule.
 
+- Each repository can have multiple workflows, each of which can perform a different set of tasks
+
 ```
  Similar to each awk statement consists of a pattern with an associated action.
 ```
