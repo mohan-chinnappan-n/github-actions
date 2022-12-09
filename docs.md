@@ -1,0 +1,1 @@
+- [sign a dx plugin](https://salesforce.stackexchange.com/questions/255045/how-to-sign-a-sfdx-plugin)

@@ -9,6 +9,7 @@ jobs:
       - uses: sfdx-actions/setup-sfdx@v1
       - run: echo 'y' | sfdx plugins:install sfdx-mohanc-plugins
       - run: sfdx plugins
+      - run: sfdx mohanc:site:gen -h
 
 
       - uses: actions/setup-node@v3
