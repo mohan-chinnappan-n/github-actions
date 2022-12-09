@@ -7,9 +7,9 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - uses: sfdx-actions/setup-sfdx@v1
-      - run: sfdx plugins:install sfdx-mohanc-plugins
+      - run: echo 'y' | sfdx plugins:install sfdx-mohanc-plugins
       - run: sfdx plugins
-       
+
 
       - uses: actions/setup-node@v3
         with:
