@@ -13,5 +13,16 @@
  Similar to each awk statement consists of a pattern with an associated action.
 ```
 
+
+ - [ Continuous Integration (CI) with GitHub Actions ](https://www.youtube.com/watch?v=2fjqhwgwgCE)
+
+- Event (say: Commit, Pull Request, Issues, ..., can be filtered)
+	- Triggers Workflow
+		- Execute Jobs
+			- Steps -> Actions
+		
+- Workflow (.yml file in .github/workflows folder)
+	- Jobs
+		- Steps	
 ## References
 - [Understanding GitHub Actions](https://docs.github.com/en/actions/learn-github-actions/understanding-github-actions)
