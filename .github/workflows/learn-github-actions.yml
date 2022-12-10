@@ -13,10 +13,6 @@ jobs:
       - run: sfdx mohanc:site:gen -i ./input.md -o ./input.md.html -t 'Title for the slides'
       - run: cat ./input.md.html
 
-      - name: save current date
-        run: |
-        # do some operation that changes a file in the git repo
-        date > time.txt
 
       - name: setup git config
         run: |
