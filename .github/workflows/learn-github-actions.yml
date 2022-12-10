@@ -6,14 +6,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-
-      - uses: sfdx-actions/setup-sfdx@v1
+      
       - run: echo 'y' | sfdx plugins:install sfdx-mohanc-plugins
       - run: sfdx plugins
 
       # slides generator
-      - run: FN=$RANDOM
-      - run: sfdx mohanc:slides:gen -i ./input.md -o ./${RANDOM}.md.html -t 'Title for the slides'
+      - run: export FN=$RANDOM
+      - run: sfdx mohanc:slides:gen -i ./input.md -o ./${FN}.md.html -t 'Title for the slides'
       - run: echo ${{ secrets.SEL_AUTH_URL}} > ./mysecret.txt
       - run: sfdx auth:sfdxurl:store -f ./mysecret.txt -s -a targetOrg
 
@@ -28,7 +27,7 @@ jobs:
 
       # commit files
       - run: |
-          git add  ./${RANDOM}.md.html Org.svg
+          git add  ./${FN}.md.html Org.svg
           git commit -m "updated slides html file"
           git push origin main
 
