@@ -12,6 +12,13 @@ jobs:
       - run: sfdx plugins
       - run: sfdx mohanc:site:gen -i ./input.md -o ./input.md.html -t 'Title for the slides'
       - run: cat ./input.md.html
+
+      - name: setup git config
+        run: |
+          # setup the username and email. I tend to use 'GitHub Actions Bot' with no email by default
+          git config user.name "GitHub Actions Bot"
+          git config user.email "<>"
+          
       - run: |
           git add  ./input.md.html
           git commit -m "updated slides html file"
