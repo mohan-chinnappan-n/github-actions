@@ -11,6 +11,8 @@ jobs:
       - run: echo 'y' | sfdx plugins:install sfdx-mohanc-plugins
       - run: sfdx plugins
       - run: sfdx mohanc:site:gen -i ./input.md -o ./input.md.html -t 'Title for the slides'
+      - run: cat ./input.md.html
+
 
 
 
