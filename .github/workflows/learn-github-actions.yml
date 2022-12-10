@@ -27,7 +27,7 @@ jobs:
           git config user.email "<>"
 
       - run: |
-          git add  ./input5.md.html ./org.svg
+          git add  ./input5.md.html .Oorg.svg
           git commit -m "updated slides html file"
           git push origin main
 
