@@ -6,10 +6,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+
       - uses: sfdx-actions/setup-sfdx@v1
       - run: echo 'y' | sfdx plugins:install sfdx-mohanc-plugins
       - run: sfdx plugins
-      - run: sfdx mohanc:site:gen -h
+      - run: sfdx mohanc:site:gen -i ./input.md -o ./input.md.html -t 'Title for the slides'
+
 
 
       - uses: actions/setup-node@v3
