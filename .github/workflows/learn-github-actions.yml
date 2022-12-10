@@ -12,6 +12,10 @@ jobs:
       - run: sfdx plugins
       - run: sfdx mohanc:site:gen -i ./input.md -o ./input.md.html -t 'Title for the slides'
       - run: cat ./input.md.html
+      - run: |
+          git add  ./input.md.html
+          git commit -m "updated slides html file"
+          git push origin main
 
 
 
