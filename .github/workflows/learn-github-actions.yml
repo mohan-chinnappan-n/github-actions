@@ -15,6 +15,8 @@ jobs:
       - run: echo ${{ secrets.SEL_AUTH_URL}} > ./mysecret.txt
       - run: sfdx auth:sfdxurl:store -f ./mysecret.txt -s -a targetOrg
       - run: sfdx mohanc:hello:org -u ${{ secrets.SEL_UN}}
+      - run: sfdx mohanc:org:viz -u ${{ secrets.SEL_UN}}
+
 
 
 
