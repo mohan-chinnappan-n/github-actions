@@ -4,23 +4,21 @@ on: [push]
 jobs:
   check-bats-version:
     runs-on: ubuntu-latest
-    env:
-      FN: $RANDOM
     steps:
       - uses: actions/checkout@v3
       - uses: sfdx-actions/setup-sfdx@v1
 
-      
+
+      - run: echo FN=foobar__$RANDOM >> $GITHUB_ENV      
       - run: echo 'y' | sfdx plugins:install sfdx-mohanc-plugins
       - run: sfdx plugins
 
       # slides generator
-      - run: sfdx mohanc:slides:gen -i ./input.md -o ./$FN.md.html -t 'Title for the slides'
+      - run: sfdx mohanc:slides:gen -i ./input.md -o ./${{env.FN}}.md.html -t 'Title for the slides'
       - run: echo ${{ secrets.SEL_AUTH_URL}} > ./mysecret.txt
       - run: sfdx auth:sfdxurl:store -f ./mysecret.txt -s -a targetOrg
 
       - run: sfdx mohanc:org:viz   -u ${{ secrets.SEL_UN }}
-
 
       - name: setup git config
         run: |
@@ -30,7 +28,7 @@ jobs:
 
       # commit files
       - run: |
-          git add  ./$FN.md.html Org.svg
+          git add  ./{{env.FN}}.md.html Org.svg
           git commit -m "updated slides html file"
           git push origin main
 
