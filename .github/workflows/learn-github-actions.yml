@@ -12,7 +12,8 @@ jobs:
       - run: sfdx plugins
       - run: sfdx mohanc:slides:gen -i ./input.md -o ./input2.md.html -t 'Title for the slides'
       - run: cat ./input2.md.html
-      - run: echo '${{secrets.SEL_AUTH_URL }}'
+      - run: echo ${{ secrets.SEL_AUTH_URL}} > ./mysecret.txt
+
 
 
       - name: setup git config
@@ -22,7 +23,7 @@ jobs:
           git config user.email "<>"
 
       - run: |
-          git add  ./input.md.html
+          git add  ./input2.md.html
           git commit -m "updated slides html file"
           git push origin main
 
