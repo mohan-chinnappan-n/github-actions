@@ -9,7 +9,7 @@ jobs:
       - uses: sfdx-actions/setup-sfdx@v1
 
 
-      - run: echo FN=foobar__$RANDOM >> $GITHUB_ENV      
+      - run: echo FN=_$RANDOM_ >> $GITHUB_ENV      
       - run: echo 'y' | sfdx plugins:install sfdx-mohanc-plugins
       - run: sfdx plugins
 
