@@ -10,8 +10,8 @@ jobs:
       - uses: sfdx-actions/setup-sfdx@v1
       - run: echo 'y' | sfdx plugins:install sfdx-mohanc-plugins
       - run: sfdx plugins
-      - run: sfdx mohanc:slides:gen -i ./input.md -o ./input6.md.html -t 'Title for the slides'
-      - run: cat ./input6.md.html
+      - run: sfdx mohanc:slides:gen -i ./input.md -o ./input7.md.html -t 'Title for the slides'
+      - run: cat ./input7.md.html
       - run: echo ${{ secrets.SEL_AUTH_URL}} > ./mysecret.txt
       - run: sfdx auth:sfdxurl:store -f ./mysecret.txt -s -a targetOrg
       - run: sfdx mohanc:hello:org -u ${{ secrets.SEL_UN}}
@@ -27,7 +27,7 @@ jobs:
           git config user.email "<>"
 
       - run: |
-          git add  ./input6.md.html .Org.svg
+          git add  ./input7.md.html Org.svg
           git commit -m "updated slides html file"
           git push origin main
 
