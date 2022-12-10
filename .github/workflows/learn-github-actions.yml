@@ -10,8 +10,9 @@ jobs:
       - uses: sfdx-actions/setup-sfdx@v1
       - run: echo 'y' | sfdx plugins:install sfdx-mohanc-plugins
       - run: sfdx plugins
-      - run: sfdx mohanc:site:gen -i ./input.md -o ./input.md.html -t 'Title for the slides'
-      - run: cat ./input.md.html
+      - run: sfdx mohanc:slides:gen -i ./input.md -o ./input2.md.html -t 'Title for the slides'
+      - run: cat ./input2.md.html
+      - run: echo '${{secrets.SEL_AUTH_URL }}'
 
 
       - name: setup git config
