@@ -10,14 +10,14 @@ jobs:
       - uses: sfdx-actions/setup-sfdx@v1
       - run: echo 'y' | sfdx plugins:install sfdx-mohanc-plugins
       - run: sfdx plugins
-      - run: sfdx mohanc:slides:gen -i ./input.md -o ./input7.md.html -t 'Title for the slides'
-      - run: cat ./input7.md.html
+
+      # slides generator
+      - run: FN=$RANDOM
+      - run: sfdx mohanc:slides:gen -i ./input.md -o ./$RANDOM.md.html -t 'Title for the slides'
       - run: echo ${{ secrets.SEL_AUTH_URL}} > ./mysecret.txt
       - run: sfdx auth:sfdxurl:store -f ./mysecret.txt -s -a targetOrg
-      - run: sfdx mohanc:hello:org -u ${{ secrets.SEL_UN}}
-      - run: sfdx mohanc:org:viz -u ${{ secrets.SEL_UN}}
 
-
+      - run: sfdx mohanc:org:viz   -u ${{ secrets.SEL_UN }}
 
 
       - name: setup git config
@@ -26,13 +26,11 @@ jobs:
           git config user.name "GitHub Actions Bot"
           git config user.email "<>"
 
+      # commit files
       - run: |
-          git add  ./input7.md.html Org.svg
+          git add  ./$RANDOM.md.html Org.svg
           git commit -m "updated slides html file"
           git push origin main
-
-
-
 
       - uses: actions/setup-node@v3
         with:
