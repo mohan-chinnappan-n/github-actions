@@ -28,7 +28,7 @@ jobs:
 
       # commit files
       - run: |
-          git add  ./{{env.FN}}.md.html Org.svg
+          git add  ./${{env.FN}}.md.html Org.svg
           git commit -m "updated slides html file"
           git push origin main
 
