@@ -1,4 +1,6 @@
-
+name: e2e
+run-name: testing e2e
+on: [push]
 
 jobs:
   tests_e2e:
